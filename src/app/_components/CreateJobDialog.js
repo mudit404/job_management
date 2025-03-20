@@ -42,6 +42,7 @@ const CreateJobDialog = ({ isOpen, onClose }) => {
 
     if (resp) {
       // setOpenDialog(false);
+      window.location.reload();
       onClose();
       // router.push("/");
     }
