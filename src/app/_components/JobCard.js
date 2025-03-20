@@ -17,7 +17,7 @@ const JobCard = ({ job }) => {
         {/* <img src={logo} alt="Company Logo" className="h-12" /> */}
         <h2 className="text-lg font-semibold mt-2">{job?.company}</h2>
         <span className="text-black-500 bg-blue-300 p-1 rounded-md border-solid">
-          {timeAgo} h{timeAgo !== 1 ? 's' : ''} Ago
+          {timeAgo}h Ago
         </span>
       </div>
       <h3 className="text-lg font-semibold mt-2">{job?.title}</h3>

@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import CreateJobDialog from './CreateJobDialog';
 
 
-const Navbar = ({ setRefresh, addNewJob }) => {
+const Navbar = ({ addNewJob }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    // const [refresh, setRefresh] = useState(false);
+    const [refresh, setRefresh] = useState(false);
     useEffect(() => {
       if (!isDialogOpen) {
         setRefresh(prev => !prev);  // Toggle refresh state to force re-render
@@ -30,7 +30,7 @@ const Navbar = ({ setRefresh, addNewJob }) => {
         >
             Create Jobs
         </button>
-        <CreateJobDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} addNewJob={addNewJob}/>
+        <CreateJobDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}/>
       </div>
     </nav>
   );
