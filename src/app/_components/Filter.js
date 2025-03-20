@@ -4,8 +4,8 @@ const Filter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
     title: '',
     location: '',
-    type: 'Full-time',
-    salaryRange: [50000, 80000],
+    type: '',
+    salaryRange: [0, 1000000],
   });
 
   const handleChange = (e) => {
