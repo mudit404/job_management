@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const Filter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
-    jobTitle: '',
+    title: '',
     location: '',
-    jobType: 'Full-time',
+    type: 'Full-time',
     salaryRange: [50000, 80000],
   });
 
@@ -25,8 +25,8 @@ const Filter = ({ onFilterChange }) => {
       <div className="flex items-center space-x-2">
         <input
           type="text"
-          name="jobTitle"
-          value={filters.jobTitle}
+          name="title"
+          value={filters.title}
           onChange={handleChange}
           placeholder="Search By Job Title, Role"
           className="border border-gray-300 rounded-md px-3 py-2 w-64"
@@ -44,8 +44,8 @@ const Filter = ({ onFilterChange }) => {
       </div>
       <div className="flex items-center space-x-2">
         <select
-          name="jobType"
-          value={filters.jobType}
+          name="type"
+          value={filters.type}
           onChange={handleChange}
           className="border border-gray-300 rounded-md px-3 py-2"
         >

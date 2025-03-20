@@ -1,10 +1,16 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateJobDialog from './CreateJobDialog';
 
 
-const Navbar = () => {
+const Navbar = ({ setRefresh, addNewJob }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    // const [refresh, setRefresh] = useState(false);
+    useEffect(() => {
+      if (!isDialogOpen) {
+        setRefresh(prev => !prev);  // Toggle refresh state to force re-render
+      }
+    }, [isDialogOpen, setRefresh]);
 
   return (
     <nav className="bg-white py-4">
@@ -24,7 +30,7 @@ const Navbar = () => {
         >
             Create Jobs
         </button>
-        <CreateJobDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+        <CreateJobDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} addNewJob={addNewJob}/>
       </div>
     </nav>
   );

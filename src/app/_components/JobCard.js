@@ -2,13 +2,24 @@
 import React from 'react';
 
 const JobCard = ({ job }) => {
+  // Function to calculate the time difference in hours
+  const timeAgo = (() => {
+    const now = new Date();
+    const createdAt = new Date(job?.created); // Assuming job.created is a valid timestamp
+    const diffInMs = now - createdAt; // Difference in milliseconds
+    const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60)); // Convert milliseconds to hours
+    return diffInHours;
+  })();
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4 my-5 flex flex-col h-full">
-      {/* <div className="flex items-center justify-between">
-        <img src={logo} alt="Company Logo" className="h-12" />
-        <span className="text-blue-500">{timeAgo}</span>
-      </div> */}
-      <h2 className="text-lg font-semibold mt-2">{job?.company}</h2>
+      <div className="flex items-center justify-between">
+        {/* <img src={logo} alt="Company Logo" className="h-12" /> */}
+        <h2 className="text-lg font-semibold mt-2">{job?.company}</h2>
+        <span className="text-black-500 bg-blue-300 p-1 rounded-md border-solid">
+          {timeAgo} h{timeAgo !== 1 ? 's' : ''} Ago
+        </span>
+      </div>
       <h3 className="text-lg font-semibold mt-2">{job?.title}</h3>
       <div className="flex items-center text-gray-600 mt-1">
         <span>{job?.type}</span>
